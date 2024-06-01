@@ -169,6 +169,10 @@
       <AdditionalOptions>/NOCOFFGRPINFO %(AdditionalOptions)</AdditionalOptions>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)..\Binaries"
+copy "$(OutDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\Binaries\$(TargetName)$(TargetExt)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />

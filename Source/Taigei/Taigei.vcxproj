@@ -295,6 +295,10 @@
       <AdditionalOptions>/NOCOFFGRPINFO %(AdditionalOptions)</AdditionalOptions>
       <MinimumRequiredVersion>6.0</MinimumRequiredVersion>
     </Link>
+    <PostBuildEvent>
+      <Command>mkdir "$(SolutionDir)..\Binaries"
+copy "$(OutDir)$(TargetName)$(TargetExt)" "$(SolutionDir)..\Binaries\$(TargetName)$(TargetExt)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
